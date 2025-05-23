@@ -1,0 +1,51 @@
+possibilidades = [True, False]
+tabelas = []
+totais_linhas = []
+totais_verdadeiros = []
+totais_falsos = []
+
+for i in 1,2:
+    tabela = []
+    total_linhas = 0
+    total_verdadeiro = 0
+    total_falso = 0
+
+    qualFormula = input(f'Digite a fórmula {i} (use a, b, c como variáveis): ')
+    for a in possibilidades:
+        for b in possibilidades:
+            for c in possibilidades:
+                if eval(qualFormula):
+                    resultadoFormula = True
+                    total_verdadeiro += 1
+                else:
+                    resultadoFormula = False
+                    total_falso += 1
+
+                tabela.append(resultadoFormula)
+                print(f'a={a}  \t b={b}  \t c={c} \tFórmula={resultadoFormula}')
+                total_linhas += 1
+
+    tabelas.append(tabela)
+    totais_linhas.append(total_linhas)
+    totais_verdadeiros.append(total_verdadeiro)
+    totais_falsos.append(total_falso)
+
+    print(f'Total de linhas: {total_linhas}')
+    print(f'Total de linhas com resultado FALSO: {total_falso}')
+    print(f'Total de linhas com resultado VERDADEIRO: {total_verdadeiro}')
+
+    print(f'Análise da propriedade semântica da fórmula {qualFormula}:')
+    if total_verdadeiro == total_linhas:
+        tipoFormula = "TAUTOLOGICA"
+    elif total_falso == total_linhas:
+        tipoFormula = "CONTRADITORIA"
+    else:
+        tipoFormula = "SATISFATORIA"
+    print(f"Esta fórmula é {tipoFormula}")
+    print()
+
+print("FAZENDO ANÁLISE DE EQUIVALÊNCIA ENTRE AS FÓRMULAS:")
+if tabelas[0] == tabelas[1]:
+    print("As fórmulas são equivalentes.")
+else:
+    print("As fórmulas não são equivalentes.")
