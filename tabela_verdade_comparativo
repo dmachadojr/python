@@ -1,11 +1,15 @@
-possibilidades = [True, False]
-tabelas = []
-totais_linhas = []
-totais_verdadeiros = []
-totais_falsos = []
+#--------------------------------------------------------------------------------
+# descrição: geração de tabela verdade, análise semântica e análise de equivalência
+# autoria: Prof. Dr. Dorival M. Machado Jr.
+# observações: - NÃO será realizado tratamento de erros (fica por sua conta a melhoria)
+#              - conteúdo usado na disciplina de Introdução à Lógica
+#--------------------------------------------------------------------------------
 
-for i in 1,2:
-    tabela = []
+possibilidades = [True, False]
+tabelas = []  # esta variável será utilizada para receber as respostas da última coluna das 2 tabelas que serão testadas
+
+for i in 1,2:  #fazendo um for com valores 1 e 2, pois são 2 fórmulas a serem testadas
+    tabela = []  #esta variável auxiliar receberá as respostas da última coluna da tabela, para depois jogar na variável "tabelas"
     total_linhas = 0
     total_verdadeiro = 0
     total_falso = 0
@@ -25,11 +29,8 @@ for i in 1,2:
                 print(f'a={a}  \t b={b}  \t c={c} \tFórmula={resultadoFormula}')
                 total_linhas += 1
 
-    tabelas.append(tabela)
-    totais_linhas.append(total_linhas)
-    totais_verdadeiros.append(total_verdadeiro)
-    totais_falsos.append(total_falso)
-
+    tabelas.append(tabela) #adiciona a "tabela" dentro de "tabelas"
+    
     print(f'Total de linhas: {total_linhas}')
     print(f'Total de linhas com resultado FALSO: {total_falso}')
     print(f'Total de linhas com resultado VERDADEIRO: {total_verdadeiro}')
@@ -44,8 +45,14 @@ for i in 1,2:
     print(f"Esta fórmula é {tipoFormula}")
     print()
 
+#-------------------------------------
+# se quiser visualizar o conteúdo da variável "tabelas", descomente estas linhas:
+#print(tabelas[0])
+#aprint(tabelas[1])
+#-------------------------------------
+
 print("FAZENDO ANÁLISE DE EQUIVALÊNCIA ENTRE AS FÓRMULAS:")
-if tabelas[0] == tabelas[1]:
+if tabelas[0] == tabelas[1]:    #aqui faz-se a comparação da última coluna das duas tabelas  
     print("As fórmulas são equivalentes.")
 else:
     print("As fórmulas não são equivalentes.")
